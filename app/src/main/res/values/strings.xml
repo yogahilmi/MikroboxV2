@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Mikrobox</string>
+    <string name="title_activity_login">Mikrotik</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Address</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">CONNECT</string>
+    <string name="action_save">SAVE</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_login_mikrotik">Mikrobox</string>
+    <string name="bottom_status">Status</string>
+    <string name="bottom_config">Configs</string>
+    <string name="bottom_traffic">Traffic</string>
+    <string name="menu_cap">CAPsMAN</string>
+    <string name="menu_interfaces">Interfaces</string>
+    <string name="menu_wireless">Wireless</string>
+    <string name="menu_bridge">Bridge</string>
+    <string name="menu_ppp">PPP</string>
+    <string name="menu_mesh">Mesh</string>
+    <string name="menu_ip">IP</string>
+    <string name="menu_mpls">MPLS</string>
+    <string name="menu_routing">Routing</string>
+    <string name="menu_system">System</string>
+    <string name="menu_queue">Queues</string>
+    <string name="menu_log">Log</string>
+    <string name="menu_radius">Radius</string>
+    <string name="reboot">Reboot</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="board_name">Board Name</string>
+    <string name="version">Version</string>
+    <string name="uptime">Uptime</string>
+    <string name="cpu_load">CPU Load</string>
+    <string name="free_memory">Free Memory</string>
+    <string name="total_memory">Total Memory</string>
+    <string name="free_hdd">Free HDD Space</string>
+    <string name="total_hdd">Total HDD Space</string>
+    <string name="mikrotik">Mikrotik</string>
+    <string name="remote">Router Remote Management</string>
+
+    <string-array name="config_menu">
+        <item>CAPsMAN</item>
+        <item>Interfaces</item>
+        <item>Wireless</item>
+        <item>Bridge</item>
+        <item>PPP</item>
+        <item>Mesh</item>
+        <item>Routing</item>
+        <item>System</item>
+        <item>Queues</item>
+        <item>Log</item>
+        <item>Radius</item>
+        <item>Reboot</item>
+    </string-array>
+
+    <string-array name="cap_states">
+        <item>New South Wales</item>
+        <item>Northern Territory</item>
+        <item>Queensland</item>
+        <item>South Australia</item>
+        <item>Tasmania</item>
+        <item>Victoria</item>
+        <item>Western Australia</item>
+    </string-array>
+
+    <string-array name="interface_states">
+        <item>Alabama</item>
+        <item>Alaska</item>
+        <item>Arizona</item>
+        <item>Arkansas</item>
+        <item>California</item>
+    </string-array>
+</resources>

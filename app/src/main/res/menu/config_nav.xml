@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/cap_menu"
+        android:icon="@drawable/ic_capman"
+        android:title="@string/menu_cap"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/int_menu"
+        android:title="@string/menu_interfaces"
+        android:icon="@drawable/ic_interface"/>
+
+    <item
+        android:id="@+id/wireless_menu"
+        android:title="@string/menu_wireless"
+        android:icon="@drawable/ic_wireless"/>
+
+    <item
+        android:id="@+id/bridge_menu"
+        android:title="@string/menu_bridge"
+        android:icon="@drawable/ic_bridge"/>
+    <item
+        android:id="@+id/ppp_menu"
+        android:title="@string/menu_ppp"
+        android:icon="@drawable/ic_ppp"/>
+    <item
+        android:id="@+id/mesh_menu"
+        android:title="@string/menu_mesh"
+        android:icon="@drawable/ic_mesh"/>
+    <item
+        android:id="@+id/routing_menu"
+        android:title="@string/menu_routing"
+        android:icon="@drawable/ic_routing"/>
+    <item
+        android:id="@+id/system_menu"
+        android:title="@string/menu_system"
+        android:icon="@drawable/ic_system"/>
+
+    <item
+        android:id="@+id/queue_menu"
+        android:title="@string/menu_queue"
+        android:icon="@drawable/ic_queue"/>
+    <item
+        android:id="@+id/log_menu"
+        android:title="@string/menu_log"
+        android:icon="@drawable/ic_log"/>
+    <item
+        android:id="@+id/radius_menu"
+        android:title="@string/menu_radius"
+        android:icon="@drawable/ic_radius"/>
+
+    <item
+        android:id="@+id/reboot"
+        android:title="@string/reboot"
+        android:icon="@drawable/ic_reboot"/>
+
+</menu>
