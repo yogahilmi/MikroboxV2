@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.tasanahetech.mikroboxv2.api.ApiConnection;
 import com.tasanahetech.mikroboxv2.api.MikrotikApiException;
+import com.tasanahetech.mikroboxv2.api.ResultListener;
 
 import java.util.List;
 import java.util.Map;
@@ -22,22 +23,33 @@ public class TrafficFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_traffic, container, false);
 
-
+        //Untuk menjalankan command dari API
         ApiConnection con = MainActivity.getCon();
-        if (con !=null)
+        if(con !=null)
         {
             try {
-                //Untuk Menampilkan Platform Mikrotik
-                List<Map<String, String>> rs = con.execute("/system/resource/print");
-                for (Map<String, String> map : rs) {
-                    System.out.println(map.get("platform"));
-                }
+                //Monitor traffic jaringan secara asynchronous
+                String tag = con.execute("/interface/monitor-traffic interface=ether1",
+                        new ResultListener() {
+
+                            public void receive(Map<String, String> result) {
+                                System.out.println(result);
+                            }
+
+                            public void error(MikrotikApiException e) {
+                                System.out.println("An error occurred: " + e.getMessage());
+                            }
+
+                            public void completed() {
+                                System.out.println("Asynchronous command has finished");
+                            }
+                        }
+                );
+
             } catch (MikrotikApiException e) {
                 e.printStackTrace();
             }
-
         }
-
         return view;
     }
 }

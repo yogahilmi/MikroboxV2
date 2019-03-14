@@ -11,61 +11,63 @@ import android.widget.ListView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class ConfigFragment extends Fragment {
+
+    ListViewAdapter list;
+    String ConfigMenu[] = {
+            "CAPsMAN",
+            "Interfaces",
+            "Wireless",
+            "Bridge",
+            "PPP",
+            "Mesh",
+            "Routing",
+            "System",
+            "Queues",
+            "Log",
+            "Radius",
+            "Reboot"
+    };
+    Integer ConfigIcon[] = {
+            R.drawable.ic_capman,
+            R.drawable.ic_interface,
+            R.drawable.ic_wireless,
+            R.drawable.ic_bridge,
+            R.drawable.ic_ppp,
+            R.drawable.ic_mesh,
+            R.drawable.ic_routing,
+            R.drawable.ic_system,
+            R.drawable.ic_queue,
+            R.drawable.ic_log,
+            R.drawable.ic_radius,
+            R.drawable.ic_reboot
+    };
 
     public ConfigFragment() {
 
     }
 
-    Intent intent;
-    ArrayList<String> ListViewItem;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_config, container, false);
 
-            ListViewItem = new ArrayList<>();
-            ListViewItem.add("CAPsMAN");
-            ListViewItem.add("Interfaces");
-            ListViewItem.add("Wireless");
-            ListViewItem.add("Bridge");
-            ListViewItem.add("PPP");
-            ListViewItem.add("Mesh");
-            ListViewItem.add("Routing");
-            ListViewItem.add("System");
-            ListViewItem.add("Queues");
-            ListViewItem.add("Log");
-            ListViewItem.add("Radius");
-            ListViewItem.add("Reboot");
+        ListViewAdapter adapter = new ListViewAdapter(getActivity(), ConfigIcon, ConfigMenu);
+        ListView listView = (ListView) view.findViewById(R.id.listview_fragment_config);
+        listView.setAdapter(adapter);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                    getContext(),
-                    android.R.layout.simple_list_item_1,
-                    ListViewItem
-            );
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            ListView listView = (ListView) view.findViewById(R.id.listview_fragment_config);
-            listView.setAdapter(adapter);
-            listView.setOnItemClickListener(new OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    if (position==0) {
-//                        intent = new Intent(getActivity(), CAPsMAN.class);
-//                        startActivity(intent);
-//                    } else if (position==1) {
-//                        intent = new Intent(getActivity(), Interfaces.class);
-//                        startActivity(intent);
-//                    } else if (position==2) {
-//                        intent = new Intent(getActivity(), Wireless.class);
-//                        startActivity(intent);
-//                    } else {
-//                        Toast t = Toast.makeText(getActivity(), ListViewItem.get(position), Toast.LENGTH_SHORT);
-//                        t.show();
-//                    }
-                }
-            });
+                String PilihMenu = ConfigMenu[+position];
+                Toast.makeText(getContext(), PilihMenu, Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         return view;
     }

@@ -20,34 +20,6 @@ public class ConfigActivity extends AppCompatActivity implements BottomNavigatio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
-
-        ApiConnection con = MainActivity.getCon();
-        if(con !=null)
-        {
-            try {
-                //Monitor traffic jaringan secara asynchronous
-                String tag = con.execute("/interface/monitor-traffic interface=ether1",
-                        new ResultListener() {
-
-                            public void receive(Map<String, String> result) {
-                                System.out.println(result);
-                            }
-
-                            public void error(MikrotikApiException e) {
-                                System.out.println("An error occurred: " + e.getMessage());
-                            }
-
-                            public void completed() {
-                                System.out.println("Asynchronous command has finished");
-                            }
-                        }
-                );
-            } catch (MikrotikApiException e) {
-                e.printStackTrace();
-            }
-        }
-
-
         // set default nya Status Fragment
         loadFragment(new StatusFragment());
         // inisialisasi BottomNavigaionView
