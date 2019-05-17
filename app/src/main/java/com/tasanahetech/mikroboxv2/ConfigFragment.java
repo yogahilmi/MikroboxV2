@@ -12,8 +12,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
-
 import java.util.ArrayList;
+
 
 public class ConfigFragment extends Fragment {
 
@@ -24,6 +24,7 @@ public class ConfigFragment extends Fragment {
             "Wireless",
             "Bridge",
             "PPP",
+            "IP",
             "Mesh",
             "Routing",
             "System",
@@ -38,6 +39,7 @@ public class ConfigFragment extends Fragment {
             R.drawable.ic_wireless,
             R.drawable.ic_bridge,
             R.drawable.ic_ppp,
+            R.drawable.ic_interface,
             R.drawable.ic_mesh,
             R.drawable.ic_routing,
             R.drawable.ic_system,

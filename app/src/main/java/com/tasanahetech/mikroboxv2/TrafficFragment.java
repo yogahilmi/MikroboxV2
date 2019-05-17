@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.tasanahetech.mikroboxv2.api.ApiConnection;
 import com.tasanahetech.mikroboxv2.api.MikrotikApiException;
@@ -17,6 +20,7 @@ import java.util.Map;
 
 
 public class TrafficFragment extends Fragment {
+
 
     @Nullable
     @Override

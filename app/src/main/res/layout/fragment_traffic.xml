@@ -13,4 +13,10 @@
         android:text="@string/bottom_traffic"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listview_fragment_traffic">
+    </ListView>
+
     </RelativeLayout>

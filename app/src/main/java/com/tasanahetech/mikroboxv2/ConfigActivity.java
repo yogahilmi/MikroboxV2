@@ -1,20 +1,20 @@
 package com.tasanahetech.mikroboxv2;
 
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.tasanahetech.mikroboxv2.api.ApiConnection;
-import com.tasanahetech.mikroboxv2.api.MikrotikApiException;
-import com.tasanahetech.mikroboxv2.api.ResultListener;
-
-import java.util.List;
-import java.util.Map;
+import com.tasanahetech.mikroboxv2.api.ApiConnectionException;
 
 
 public class ConfigActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+
+    ApiConnection con = MainActivity.getCon();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,25 @@ public class ConfigActivity extends AppCompatActivity implements BottomNavigatio
                 break;
         }
         return loadFragment(fragment);
+    }
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Disconnect from router?")
+                .setCancelable(false)
+                .setNegativeButton("No",null)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            con.close();
+                        } catch (ApiConnectionException e) {
+                            e.printStackTrace();
+                        }
+                        ConfigActivity.this.finish();
+                    }
+                })
+                .show();
     }
 
 }

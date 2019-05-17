@@ -16,15 +16,16 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        tools:layout_editor_absoluteX="160dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="50dp">
 
         <android.support.design.widget.TextInputLayout
@@ -35,8 +36,11 @@
                 android:id="@+id/editTextAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_email"
-                android:maxLines="1" />
+                android:hint="@string/prompt_address"
+                android:maxLines="1"
+                android:textSize="16sp"
+                android:autofillHints=""
+                android:inputType="" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -50,7 +54,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_username"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="16sp"
+                android:inputType="" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -65,20 +71,29 @@
                 android:hint="@string/prompt_password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/keep"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btn_connect"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="15dp"
             android:background="@color/colorButton"
+            android:fontFamily="sans-serif"
             android:text="@string/action_sign_in"
-            android:textColor="@color/colorText"
-            android:textStyle="bold" />
+            android:textColor="@color/colorText" />
 
         <Button
             android:id="@+id/btn_save"
@@ -87,9 +102,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@color/colorButton2"
+            android:fontFamily="sans-serif"
             android:text="@string/action_save"
-            android:textColor="@color/colorText"
-            android:textStyle="bold" />
+            android:textColor="@color/colorText" />
 
     </LinearLayout>
 
