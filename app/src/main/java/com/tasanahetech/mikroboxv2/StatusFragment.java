@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class StatusFragment extends Fragment {
 
-    LineGraphSeries<DataPoint> cpu, memory;
+    private LineGraphSeries<DataPoint> cpu;
 
 
     @Nullable
@@ -35,6 +35,17 @@ public class StatusFragment extends Fragment {
         if (con !=null)
         {
             try {
+
+                //Graphview
+                final GraphView graphView = (GraphView) view.findViewById(R.id.graph_cpu);
+                cpu = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                        new DataPoint(0, 1),
+                        new DataPoint(1, 5),
+                        new DataPoint(2, 3),
+                        new DataPoint(3, 2),
+                        new DataPoint(4, 6)
+                });
+
                 //Untuk Menampilkan Resource dari Mikrotik
                 String rs = con.execute("/system/resource/print interval=1",
                         new ResultListener() {
@@ -48,10 +59,6 @@ public class StatusFragment extends Fragment {
                             TextView tv6 = (TextView) view.findViewById(R.id.textView6);
                             TextView tv7 = (TextView) view.findViewById(R.id.textView7);
                             TextView tv8 = (TextView) view.findViewById(R.id.textView8);
-
-                            //Graphview
-                            GraphView graphView = (GraphView) view.findViewById(R.id.graph_cpu);
-                            GraphView graphView1 = (GraphView) view.findViewById(R.id.graph_memory);
 
                             public void receive(final Map<String, String> result) {
                                 if (getActivity()!=null)
@@ -70,23 +77,7 @@ public class StatusFragment extends Fragment {
                                         tv8.setText(String.format("%s MB", Integer.parseInt(result.get("total-hdd-space")) /(1024*1024) ));
 
 
-                                        cpu = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                                                new DataPoint(0, 1),
-                                                new DataPoint(1, 5),
-                                                new DataPoint(2, 3),
-                                                new DataPoint(3, 2),
-                                                new DataPoint(4, 6)
-                                        });
                                         graphView.addSeries(cpu);
-
-                                        memory = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                                                new DataPoint(0, 1),
-                                                new DataPoint(1, 5),
-                                                new DataPoint(2, 3),
-                                                new DataPoint(3, 2),
-                                                new DataPoint(4, 6)
-                                        });
-                                        graphView1.addSeries(memory);
                                     }
                                 });
                             }
