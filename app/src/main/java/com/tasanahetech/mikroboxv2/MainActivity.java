@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } catch (MikrotikApiException e) {
                     e.printStackTrace();
-                    System.out.println("Password Salah");
+                    Toast.makeText(getApplicationContext(), "Password Salah",Toast.LENGTH_LONG).show();
                 }
 
 

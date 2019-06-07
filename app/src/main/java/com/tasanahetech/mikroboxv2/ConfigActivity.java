@@ -10,6 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import com.tasanahetech.mikroboxv2.api.ApiConnection;
 import com.tasanahetech.mikroboxv2.api.ApiConnectionException;
+import com.tasanahetech.mikroboxv2.config.IP;
+import com.tasanahetech.mikroboxv2.config.Interfaces;
+import com.tasanahetech.mikroboxv2.config.Log;
+import com.tasanahetech.mikroboxv2.config.Queues;
+import com.tasanahetech.mikroboxv2.config.Routing;
 
 
 public class ConfigActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -49,7 +54,7 @@ public class ConfigActivity extends AppCompatActivity implements BottomNavigatio
                 fragment = new ConfigFragment();
                 break;
             case R.id.traffic_menu:
-                fragment = new TrafficFragment();
+                fragment = new Interfaces();
                 break;
         }
         return loadFragment(fragment);
