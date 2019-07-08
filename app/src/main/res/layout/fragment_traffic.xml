@@ -14,9 +14,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <ListView
+        android:id="@+id/listview_fragment_traffic"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listview_fragment_traffic">
-    </ListView>
+        android:layout_height="wrap_content"></ListView>
 
     </RelativeLayout>

@@ -68,7 +68,7 @@ public abstract class ApiConnection implements AutoCloseable {
     public abstract boolean isConnected();
 
     /**
-     * Log in to the remote router.
+     * Ping in to the remote router.
      *
      * @param username - username of the user on the router
      * @param password - password for the user

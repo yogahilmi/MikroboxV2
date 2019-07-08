@@ -4,27 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tasanahetech.mikroboxv2.MainActivity">
+    tools:context=".config.bandwidth.simple_queue">
 
-    <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_sq"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="parent"
-        tools:layout_editor_absoluteX="160dp" />
+        android:theme="@style/AppTheme.AppBarOverlay"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="50dp">
 
@@ -33,10 +31,10 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextAddress"
+                android:id="@+id/editTextIp_bw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_address"
+                android:hint="@string/input_ip"
                 android:maxLines="1"
                 android:textSize="16sp"
                 android:autofillHints=""
@@ -50,65 +48,76 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextUsername"
+                android:id="@+id/editTextDownload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_username"
+                android:hint="Max Limit (Upload/Download)"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textSize="16sp"
-                android:inputType=""
-                android:digits="@string/no_space"/>
+                android:inputType="number"
+                android:digits="/1234567890"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/editTextUpload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_password"
-                android:inputType="textPassword"
+                android:hint="Limit at (Upload/Download)"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textSize="16sp"
+                android:inputType="number"
+                android:digits="/1234567890"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editTextIp_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input Name"
+                android:maxLines="1"
+                android:textSize="16sp"
+                android:autofillHints=""
+                android:inputType=""
                 android:digits="@string/no_space"/>
 
         </android.support.design.widget.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/keep"
-            android:textSize="16sp" />
 
         <Button
-            android:id="@+id/btn_connect"
+            android:id="@+id/btn_setBW"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/colorButton"
+            android:fontFamily="sans-serif"
+            android:text="@string/set_ip"
+            android:textColor="@color/colorText" />
+
+        <Button
+            android:id="@+id/btn_cancelBW"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/colorButton"
-            android:fontFamily="sans-serif"
-            android:text="@string/action_sign_in"
-            android:textColor="@color/colorText" />
-
-        <Button
-            android:id="@+id/btn_exit"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:background="@color/colorButton2"
             android:fontFamily="sans-serif"
-            android:text="@string/action_exit"
+            android:text="@string/cancel"
             android:textColor="@color/colorText" />
 
     </LinearLayout>
+
 
 </RelativeLayout>

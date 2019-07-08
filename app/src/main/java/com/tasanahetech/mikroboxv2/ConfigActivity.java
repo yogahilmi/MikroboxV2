@@ -1,5 +1,6 @@
 package com.tasanahetech.mikroboxv2;
 
+import android.support.v7.widget.Toolbar;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,11 +11,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import com.tasanahetech.mikroboxv2.api.ApiConnection;
 import com.tasanahetech.mikroboxv2.api.ApiConnectionException;
-import com.tasanahetech.mikroboxv2.config.IP;
-import com.tasanahetech.mikroboxv2.config.Interfaces;
-import com.tasanahetech.mikroboxv2.config.Log;
-import com.tasanahetech.mikroboxv2.config.Queues;
-import com.tasanahetech.mikroboxv2.config.Routing;
 
 
 public class ConfigActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -31,6 +27,10 @@ public class ConfigActivity extends AppCompatActivity implements BottomNavigatio
         BottomNavigationView bottomNavigationView = findViewById(R.id.bn_main);
         // beri listener pada saat item/menu bottomnavigation terpilih
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_config);
+        setSupportActionBar(toolbar);
+
     }
 
     private boolean loadFragment(Fragment fragment){
@@ -54,7 +54,7 @@ public class ConfigActivity extends AppCompatActivity implements BottomNavigatio
                 fragment = new ConfigFragment();
                 break;
             case R.id.traffic_menu:
-                fragment = new Interfaces();
+                fragment = new TrafficFragment();
                 break;
         }
         return loadFragment(fragment);
@@ -62,7 +62,8 @@ public class ConfigActivity extends AppCompatActivity implements BottomNavigatio
 
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setMessage("Disconnect from router?")
+                .setTitle("Logout")
+                .setMessage("Are you sure")
                 .setCancelable(false)
                 .setNegativeButton("No",null)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {

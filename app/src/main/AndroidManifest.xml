@@ -11,6 +11,39 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Main2Activity"></activity>
+        <activity
+            android:name=".config.routes.route"
+            android:label="Routing Table"
+            android:parentActivityName=".config.Routes"/>
+        <activity
+            android:name=".config.bandwidth.simple_queue"
+            android:label="Input Bandwidth"
+            android:parentActivityName=".config.Bandwidth" />
+        <activity
+            android:name=".config.ip.addresses"
+            android:label="Input IP"
+            android:parentActivityName=".config.IP" />
+        <activity
+            android:name=".config.Ping"
+            android:label="Ping"
+            android:parentActivityName=".ConfigActivity" />
+        <activity
+            android:name=".config.Routes"
+            android:label="Routes"
+            android:parentActivityName=".ConfigActivity" />
+        <activity
+            android:name=".config.Bandwidth"
+            android:label="Bandwidth"
+            android:parentActivityName=".ConfigActivity" />
+        <activity
+            android:name=".config.IP"
+            android:label="IP Address"
+            android:parentActivityName=".ConfigActivity" />
+        <activity
+            android:name=".config.Interfaces"
+            android:label="Interface"
+            android:parentActivityName=".ConfigActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +51,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConfigActivity"></activity>
+        <activity
+            android:name=".ConfigActivity"
+            android:label="Main Menu" />
     </application>
 
 </manifest>
